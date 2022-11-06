@@ -1,0 +1,10 @@
+- Luaran dari fungsi Aneh jika diberi parameter bernilai (6)
+    dengan hasil akhir = -4
+
+- tahapan : 
+pertama, nilai z akan masuk ke kondisi jika z>0 dan jika z bilangan genap, lalu nilai yang direturn adalah 6 - Aneh(3) * Aneh(4).
+lalu pada rekursif Aneh 3 akan masuk ke kondisi jika z bilangan ganjil dan akan mereturn nilai 3 + Aneh (1) * Aneh (2) dan untuk Aneh(4) akan mereturn nilai 4 - Aneh(1) *Aneh(2).
+dan masuk ke rekursif Aneh(1) ini akan masuk ke kondisi ganjil akan mereturn nilai 1 + Aneh(-1) * Aneh (0). lalu untuk Aneh(2) akan masuk ke kondisi genap dan ini akan mereturn nilai 2 - Aneh(-1) dan Aneh(0)
+untuk Aneh(-1) dan Aneh(0) bisa langsung mengeluarkan return nilai z nya. jadi jika dituliskan secara tahapan matematikanya akan menghasilkan proses spt berikut :
+ 
+return (6 - (3 + (1 + (-1 * 0)) * (2 - (-1 * 0))) *(4 - (1 + (-1 * 0)) * (2 - (-1 * 0)) ));

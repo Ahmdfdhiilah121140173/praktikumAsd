@@ -1,0 +1,141 @@
+if(i>=3){
+                j = 0;
+                if(antrian[j].array[j] > antrian[j+1].array[j] && antrian[j].array[j]>antrian[j+2].array[j] && antrian[j].array[j]>antrian[j].array[j+1]){
+                    if(antrian[j+1].array[j] > antrian[j+2].array[j] && antrian[j+1].array[j]>antrian[j].array[j+1]){
+                        if(antrian[j+2].array[j] > antrian[j].array[j+1]){
+                            antrian[j].deQueue();
+                        }
+                        else{
+                            antrian[j+2].deQueue();
+                        }
+                    }
+                    else{
+                        antrian[j+1].deQueue();
+                    }
+                }
+                else if(antrian[j+1].array[j] > antrian[j].array[j] && antrian[j+1].array[j]>antrian[j+2].array[j] && antrian[j+1].array[j]>antrian[j].array[j+1]){
+                    if(antrian[j].array[j] > antrian[j+2].array[j] && antrian[j].array[j]>antrian[j].array[j+1]){
+                        if(antrian[j+2].array[j] > antrian[j].array[j+1]){
+                            antrian[j].deQueue();
+                        }
+                        else{
+                            antrian[j+2].deQueue();
+                        }
+                    }
+                    else{
+                        antrian[j].deQueue();
+                    }
+                }
+                else if(antrian[j+2].array[j] > antrian[j+1].array[j] && antrian[j+2].array[j]>antrian[j].array[j] && antrian[j+2].array[j]>antrian[j].array[j+1]){
+                    if(antrian[j+1].array[j] > antrian[j].array[j] && antrian[j+1].array[j]>antrian[j].array[j+1]){
+                        if(antrian[j].array[j] > antrian[j].array[j+1]){
+                            antrian[j].deQueue();
+                        }
+                        else{
+                            antrian[j].deQueue();
+                        }
+                    }
+                    else{
+                        antrian[j+1].deQueue();
+                    }
+                }
+                
+            }
+        }
+
+
+        //temp2
+           void Queue:: hapusAneh(int maxIdx){
+        int arr[4];
+        int tempArr[4];
+        for(int i = 0; i < maxIdx;i++){
+            if(i<4){
+                arr[i] = array[i];
+                tempArr[i] = array[i];
+            }
+            else
+            {
+                int j = 0;
+                if(arr[j] > arr[j+1] && arr[j]>arr[j+2] && arr[j]>arr[j+3]){
+                    if(arr[j+1] > arr[j+2] && arr[j+1]>arr[j+3]){
+                        if(arr[j+3] > arr[j+2]){
+                            tempArr[j+2] = 0; cout<<"OK1 \n";
+                        }
+                        else{
+                            tempArr[j+3] = 0; cout<<"OK2 \n";
+                        }
+                    }
+                    else{
+                        tempArr[j+1] = 0; cout<<"OK3 \n";
+                    }
+                }
+                else if(arr[j+1] > arr[j] && arr[j+1]>arr[j+2] && arr[j+1]>arr[j+3]){
+                    if(arr[j] > arr[j+2] && arr[j]>arr[j+3]){
+                        if(arr[j+3] > arr[j+2]){
+                            tempArr[j+2] = 0;cout<<"OK4 \n";
+                        }
+                        else{
+                            tempArr[j+3] = 0; cout<<"OK5 \n";
+                        }
+                    }
+                    else{
+                        tempArr[j] = 0; cout<<"OK6 \n";
+                    }
+                }
+                else if(arr[j+2] > arr[j] && arr[j+2]>arr[j+1] && arr[j+2]>arr[j+3]){
+                    if(arr[j] > arr[j+1] && arr[j]>arr[j+3]){
+                        if(arr[j+3] > arr[j+1]){
+                            tempArr[j+1] = 0;cout<<"OK7 \n";
+                        }
+                        else{
+                            tempArr[j+3] = 0;cout<<"OK8 \n";
+                        }
+                    }
+                    else{
+                        tempArr[j] = 0;cout<<"OK9 \n";
+                    }
+                }
+                else if(arr[j+3] > arr[j] && arr[j+3]>arr[j+1] && arr[j+3]>arr[j+2]){
+                    if(arr[j] > arr[j+2] && arr[j]>arr[j+1]){
+                        if(arr[j+1] > arr[j+2]){
+                            tempArr[j+2] = 0;cout<<"OK \n";
+                        }
+                        else{
+                            tempArr[j+1] = 0;cout<<"OK \n";
+                        }
+                    }
+                    else{
+                        tempArr[j] = 0;cout<<"OK \n";
+                    }
+                }
+            }
+        }
+    for(int i=0; i<4; i++){
+        cout<<tempArr[i]<<" ";
+    }
+
+    }
+
+    void Queue:: antriAneh(int idx, int value){
+        switch (idx)
+        {
+            case 0 :
+                if(this->tail < 2){
+                enQueue(value);
+                }
+                break;
+            case 1:
+                if(this->tail < 1){
+                enQueue(value);
+                }
+                break;
+            case 2:
+                if(this->tail < 1){
+                enQueue(value);
+                }
+                break;
+            
+            default:
+                break;
+            }
+    }
